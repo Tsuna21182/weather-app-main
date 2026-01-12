@@ -38,6 +38,7 @@ export interface DailyForecastUI {
   min: number;
   max: number;
   iconUrl: string;
+  timestamp: number;
 }
 
 export interface WeatherUI {
@@ -55,4 +56,11 @@ export interface WeatherUI {
   iconUrl: string;
 
   daily: DailyForecastUI[];
+  hourly?: HourlyForecastUI[];
+}
+
+export interface HourlyForecastUI {
+  hour: string; // "3 PM"
+  temp: number; // °C base
+  iconUrl: string;
 }
