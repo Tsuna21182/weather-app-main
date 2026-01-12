@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* colors */
+
+  --color-Neutral900: #03012d;
+  --color-Neutral800: #272541;
+  --color-Neutral700: #312f4b;
+  --color-Neutral600: #3d3b5e;
+  --color-Neutral300: #aeaeb7;
+  --color-Neutral200: #d5d4d9;
+  --color-Neutral0: #ffffff;
+
+  --color-Orange500: #ff7c0a;
+
+  --color-Blue500: #4455da;
+  --color-Blue700: #2d1c9c;
+
+  /* fonts */
+
+  --font-headers: "Bricolage Grotesque", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+}
