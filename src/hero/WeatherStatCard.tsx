@@ -39,7 +39,7 @@ export default function WeatherStatCard({ label, value, type }: Props) {
   }
 
   return (
-    <div className="p-4 rounded-xl bg-slate-800 text-white">
+    <div className="p-4 rounded-xl bg-Neutral800 text-white">
       <p className="text-sm text-slate-400">{label}</p>
       <p className="text-2xl font-bold">
         {displayValue} {unit}

@@ -27,7 +27,7 @@ export default function DayCard({
 
   return (
     <div
-      className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-slate-800 text-white w-28"
+      className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-Neutral800 text-white w-28"
       onClick={() => onSelectDay(timestamp)}
     >
       <p className="text-sm font-medium">{day}</p>

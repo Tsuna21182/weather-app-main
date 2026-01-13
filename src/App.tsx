@@ -9,6 +9,9 @@ import WeatherStatCard from "./hero/WeatherStatCard";
 import UnitsSelector from "./components/UnitsSelector";
 import DailyForecast from "./components/Dailyforecast/DailyForecast";
 import HourlyForecast from "./components/HourlyForecast";
+import { CurrentWeatherSkeleton } from "./components/Skeleton/CurrentWeatherSkeleton";
+import { MetricsSkeleton } from "./components/Skeleton/MetricsSkeleton";
+import { HourlyForecastSkeleton } from "./components/Skeleton/HourlyForecastSkeleton";
 
 function App() {
   const [city, setCity] = useState<string | null>(null);
@@ -56,7 +59,13 @@ function App() {
         <SearchInput onSearch={setCity} />
       </section>
       <main className="mt-10">
-        {isLoading && <p>Cargando clima...</p>}
+        {isLoading && (
+          <>
+            <CurrentWeatherSkeleton />
+            <MetricsSkeleton />
+            <HourlyForecastSkeleton />
+          </>
+        )}
 
         {weather && (
           <div>

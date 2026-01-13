@@ -21,7 +21,7 @@ export default function HourlyForecast({
         <select
           value={selectedDayTs ?? ""}
           onChange={(e) => onChangeDay(Number(e.target.value))}
-          className="px-3 py-1 rounded bg-Neutral700 text-sm"
+          className="px-8 py-1 rounded-lg bg-Neutral700 text-sm"
         >
           {days.map((day) => (
             <option key={day.timestamp} value={day.timestamp}>
