@@ -27,7 +27,6 @@ function App() {
   } = useQuery({
     queryKey: ["weather", city],
     queryFn: () => getWeatherWeek(city),
-    enabled: !!city,
     select: (data) => {
       const base = mapWeatherToUI(data);
 
