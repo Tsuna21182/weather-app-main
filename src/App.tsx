@@ -2,8 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import SearchInput from "./components/SearchInput";
 import Hero from "./hero/Hero";
 import { getWeatherWeek } from "./api/weather-Api";
-import Swal from "sweetalert2";
-import { useEffect, useState } from "react";
+
+import { useState } from "react";
 import { mapHourlyForecast, mapWeatherToUI } from "./helpers/weatherMapper";
 import WeatherStatCard from "./hero/WeatherStatCard";
 import UnitsSelector from "./components/UnitsSelector";
@@ -12,6 +12,8 @@ import HourlyForecast from "./components/HourlyForecast";
 import { CurrentWeatherSkeleton } from "./components/Skeleton/CurrentWeatherSkeleton";
 import { MetricsSkeleton } from "./components/Skeleton/MetricsSkeleton";
 import { HourlyForecastSkeleton } from "./components/Skeleton/HourlyForecastSkeleton";
+import DailyForecastSkeleton from "./components/Skeleton/DailyForecastSkeleton";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const [city, setCity] = useState<string | null>(null);
@@ -21,9 +23,11 @@ function App() {
     data: weather,
     error,
     isLoading,
+    refetch,
   } = useQuery({
     queryKey: ["weather", city],
     queryFn: () => getWeatherWeek(city),
+    enabled: !!city,
     select: (data) => {
       const base = mapWeatherToUI(data);
 
@@ -37,15 +41,6 @@ function App() {
     },
   });
 
-  useEffect(() => {
-    if (error) {
-      Swal.fire({
-        icon: "error",
-        text: error.message,
-      });
-    }
-  }, [error]);
-
   return (
     <>
       <header className="flex items-center justify-between">
@@ -56,16 +51,19 @@ function App() {
         <h1 className="my-10 text-5xl font-bold text-center font-headers">
           How´s the sky lookin today?
         </h1>
-        <SearchInput onSearch={setCity} />
+        {!error && <SearchInput onSearch={setCity} />}
       </section>
       <main className="mt-10">
         {isLoading && (
           <>
             <CurrentWeatherSkeleton />
             <MetricsSkeleton />
+            <DailyForecastSkeleton />
             <HourlyForecastSkeleton />
           </>
         )}
+
+        {!isLoading && error && <ErrorPage onRetry={refetch} />}
 
         {weather && (
           <div>

@@ -9,7 +9,9 @@ interface Props {
 export default function DailyForecast({ days, onSelectDay }: Props) {
   return (
     <section className="mt-10">
-      <h3 className="mb-4 text-lg font-semibold text-white">Daily forecast</h3>
+      <h3 className="mb-4 text-lg font-semibold text-Neutral200">
+        Daily forecast
+      </h3>
 
       <div className="grid grid-cols-3 gap-3">
         {days.map((day) => (

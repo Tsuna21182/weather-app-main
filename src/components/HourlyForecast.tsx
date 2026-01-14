@@ -16,7 +16,9 @@ export default function HourlyForecast({
   return (
     <section className="mt-8 p-4 rounded-xl bg-Neutral800">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-semibold text-white">Hourly forecast</h3>
+        <h3 className="text-lg font-semibold text-Neutral200">
+          Hourly forecast
+        </h3>
 
         <select
           value={selectedDayTs ?? ""}
