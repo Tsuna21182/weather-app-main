@@ -16,7 +16,7 @@ function Hero({ data }: HeroProps) {
   const unit = temperature === "c" ? "°C" : "°F";
 
   return (
-    <div className="bg-[url(/images/bg-today-small.svg)] bg-no-repeat bg-cover flex flex-col p-6 justify-center items-center text-center font-body rounded-lg">
+    <div className="bg-[url(/images/bg-today-small.svg)] bg-no-repeat bg-cover flex flex-col p-6 justify-center items-center text-center font-body rounded-3xl">
       <div>
         <h2 className="text-2xl font-bold ">
           {data.country}, {data.city}

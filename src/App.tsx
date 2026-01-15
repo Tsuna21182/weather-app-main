@@ -42,11 +42,11 @@ function App() {
 
   return (
     <>
-      <header className="flex items-center justify-between">
-        <img src="/images/logo.svg" alt="logo" className="w-40" />
+      <header className="flex items-center justify-between max-w-7xl md:mx-auto mt-8">
+        <img src="/images/logo.svg" alt="logo" className="w-40 lg:w-60" />
         <UnitsSelector />
       </header>
-      <section className="">
+      <section className="flex flex-col justify-center items-center">
         <h1 className="my-10 text-5xl font-bold text-center font-headers">
           How´s the sky lookin today?
         </h1>
@@ -65,37 +65,39 @@ function App() {
         {!isLoading && error && <ErrorPage onRetry={refetch} />}
 
         {weather && (
-          <div>
-            <Hero data={weather} />
-            <div className="grid grid-cols-2 gap-4 mt-6">
-              <WeatherStatCard
-                label="Feels Like"
-                value={weather.feelsLike}
-                type="temperature"
-              />
+          <div className="grid md:grid-cols-2 md:gap-8 max-w-7xl md:mx-auto">
+            <div>
+              <Hero data={weather} />
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                <WeatherStatCard
+                  label="Feels Like"
+                  value={weather.feelsLike}
+                  type="temperature"
+                />
 
-              <WeatherStatCard
-                label="Humidity"
-                value={weather.humidity}
-                type="humidity"
-              />
+                <WeatherStatCard
+                  label="Humidity"
+                  value={weather.humidity}
+                  type="humidity"
+                />
 
-              <WeatherStatCard
-                label="Wind"
-                value={weather.windSpeed}
-                type="wind"
-              />
+                <WeatherStatCard
+                  label="Wind"
+                  value={weather.windSpeed}
+                  type="wind"
+                />
 
-              <WeatherStatCard
-                label="Precipitation"
-                value={weather.precipitation}
-                type="precipitation"
+                <WeatherStatCard
+                  label="Precipitation"
+                  value={weather.precipitation}
+                  type="precipitation"
+                />
+              </div>
+              <DailyForecast
+                days={weather.daily}
+                onSelectDay={setSelectedDayTs}
               />
             </div>
-            <DailyForecast
-              days={weather.daily}
-              onSelectDay={setSelectedDayTs}
-            />
             <HourlyForecast
               hours={weather.hourly}
               days={weather.daily}

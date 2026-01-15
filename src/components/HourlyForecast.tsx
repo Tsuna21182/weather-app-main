@@ -14,7 +14,7 @@ export default function HourlyForecast({
   onChangeDay,
 }: Props) {
   return (
-    <section className="mt-8 p-4 rounded-xl bg-Neutral800">
+    <section className="mt-8 md:mt-0 p-4 rounded-xl bg-Neutral800">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-Neutral200">
           Hourly forecast
