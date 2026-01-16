@@ -54,12 +54,16 @@ function App() {
       </section>
       <main className="mt-10">
         {isLoading && (
-          <>
-            <CurrentWeatherSkeleton />
-            <MetricsSkeleton />
-            <DailyForecastSkeleton />
+          <div className="grid md:grid-cols-2 md:gap-8 max-w-7xl md:mx-auto">
+            <div>
+              <CurrentWeatherSkeleton />
+              <div className="grid gap-4 mt-6">
+                <MetricsSkeleton />
+                <DailyForecastSkeleton />
+              </div>
+            </div>
             <HourlyForecastSkeleton />
-          </>
+          </div>
         )}
 
         {!isLoading && error && <ErrorPage onRetry={refetch} />}

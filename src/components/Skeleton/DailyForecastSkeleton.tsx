@@ -6,7 +6,7 @@ export default function DailyForecastSkeleton() {
       <h3 className="mb-4 text-lg font-semibold text-Neutral200">
         Daily forecast
       </h3>
-      <div className="grid grid-cols-3 gap-4 mb-8">
+      <div className="grid grid-cols-3 lg:grid-cols-5 xl:grid-cols-7 gap-4 mb-8">
         {Array.from({ length: 7 }).map((_, i) => (
           <div
             key={i}

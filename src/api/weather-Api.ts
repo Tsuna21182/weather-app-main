@@ -31,8 +31,6 @@ export const getWeatherWeek = async (
 ): Promise<ForecastResponse> => {
   const appId = import.meta.env.VITE_API_KEY;
 
-  //await delay(50000);
-
   const { lat, lon } = await getCoords(city);
 
   const { data } = await axios.get<ForecastResponse>(
